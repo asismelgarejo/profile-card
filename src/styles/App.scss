@@ -1,0 +1,106 @@
+@mixin flex-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+
+$color-white: white;
+$color-gray: hsl(0, 0%, 59%);
+$color-gray-dark: hsl(227, 10%, 46%);
+$color-cyan: hsl(185, 75%, 39%);
+$font-main: 'Kumbh Sans', sans-serif;
+$font-size: 18px;
+
+
+#container{
+  background:
+  url(../assets/images/bg-pattern-top.svg) no-repeat -50vw -100vh,
+  url(../assets/images/bg-pattern-bottom.svg) no-repeat 50vw 25vh,
+  $color-cyan, 
+  ;
+  background-size: 100%;
+  height: 100vh;
+  width: 100vw;
+  @include flex-container();
+  font-size: $font-size;
+  flex-wrap: wrap;
+}
+
+.card{
+  background-color: $color-white;
+  width: 300px;
+  margin: 1em;
+  position: relative;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-main;
+  border-radius: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.user-container{
+  height: 70%;
+  position: relative;
+  margin-bottom: auto;
+}
+
+.user-banner{
+  width: 100%;
+  height: 50%;
+  img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+.user-avatar{
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  width: fit-content;
+  text-align: center;
+  img{
+    border: 4px solid $color-white;
+    border-radius: 50%;
+    width: 104px;
+    height: 104px;
+  }
+  span{
+    color: $color-gray-dark;
+  }
+  h1 + span{
+    font-size: 1.3em;
+  }
+  span:last-child{
+    font-size: .9em;
+  }
+}
+
+
+.user-stats{
+  width: 100%;
+  padding: 1em;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: thin solid $color-gray;
+  > div{
+    text-align: center;
+  }
+  > div span:first-child{
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  > div span:last-child{
+    font-size: .8em;
+    color: $color-gray-dark;
+  }
+}
